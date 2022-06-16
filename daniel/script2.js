@@ -1,7 +1,7 @@
 function ComboBox4_Change(){
-    var ComboBox4 = document.getElementById(id);
-    var Label24 = document.getElementById(id);
-    var ComboBox3 = document.getElementById(id);
+    var ComboBox4 = document.getElementById("comboBox4");
+    var Label24 = document.getElementById("Label24");
+    var ComboBox3 = document.getElementById("ComboBox3");
 
     if(ComboBox4.value = "PEBD"){
         Label24.value = "Polietileno de Baixa Densidade"
@@ -18,36 +18,38 @@ function ComboBox4_Change(){
     }
 }
 
+
+
 function CommandButton1_Click(){
     let Q, L, NR, e, Di, f, hf, RgHid, Tempa, Kelv, Lgu, Uc, u, Fct, mespa, QT, Dint;
     
-    var TextBox5 = document.getElementById(id);
-    var TextBox7 = document.getElementById(id);
-    var ComboBox3 = document.getElementById(id);
-    var ComboBox3 = document.getElementById(id);
-    var TextBox10 = document.getElementById(id);
-    var Label14 = document.getElementById(id);
-    var OptionButton1 = document.getElementById(id);
-    var OptionButton2 = document.getElementById(id);
-    var TextBox9 = document.getElementById(id);
-    var TextBox8 = document.getElementById(id);
-    var TextBox4 = document.getElementById(id);
-    var TextBox6 = document.getElementById(id);
-    var TextBox1 = document.getElementById(id);
-    var Label12  = document.getElementById(id);
-    var Label9  = document.getElementById(id);
+    var TextBox5 = document.getElementById("TextBox5");
+    var TextBox7 = document.getElementById("TextBox7");
+    var ComboBox3 = document.getElementById("ComboBox3");
+    var ComboBox1 = document.getElementById("ComboBox1");
+    var TextBox10 = document.getElementById("TextBox10");
+    var Label14 = document.getElementById("Label14");
+    var OptionButton1 = document.getElementById("OptionButton1");
+    var OptionButton2 = document.getElementById("OptionButton2");
+    var TextBox9 = document.getElementById("TextBox9");
+    var TextBox8 = document.getElementById("TextBox8");
+    var TextBox4 = document.getElementById("TextBox4");
+    var TextBox6 = document.getElementById("TextBox6");
+    var TextBox1 = document.getElementById("TextBox1");
+    var Label12  = document.getElementById("Label12");
+    var Label9  = document.getElementById("Label9");
 
-    Q = Val(TextBox5.value);
-    L = Val(TextBox7.value);
-    e = Val(ComboBox3.value);
-    Di = Val(ComboBox3.value);
-    Tempa = Val(TextBox10.value);
+    Q = parseFloat(TextBox5.value);
+    L = parseFloat(TextBox7.value);
+    e = parseFloat(ComboBox3.value);
+    Di = parseFloat(ComboBox1.value);
+    Tempa = parseFloat(TextBox10.value);
 
 //viscosidade cinemática da água na lateral
     
     Kelv = Tempa + 273.16;
     Lgu = (-11.73) + (1828 / Kelv) + (0.01966 * Kelv) + (-0.00001466 * (Kelv ^ 2));
-    u = ((10 ^ Lgu) / 100).toFixed(5);
+    u = ((Math.pow(10,Lgu)) / 100).toFixed(5);
     Uc = u * 1000;
     Label14 = "  Viscosidade dinâmica:  " & Uc & " x 10-³ N.s/m²";
     
@@ -61,7 +63,7 @@ function CommandButton1_Click(){
 
  //Para vazão em m³/h e diâmetro em mm
     
-    if (OptionButton1.Value == true){
+    if (OptionButton1.checked) {
         TextBox9.Text = ((353.67765 * Q / Di ^ 2)).toFixed(2);
     }
     
@@ -69,19 +71,19 @@ function CommandButton1_Click(){
   
 //Para vazão em L/h e diâmetro em mm
 
-    else if (OptionButton2.Value == true){
+    else if (OptionButton2.checked){
         TextBox9.value = (Q / (2.8274 * Di ^ 2)).toFixed(2);
     }
  
 //Nº de Ryenolds
   
-    TextBox1.value = (mespa * TextBox9.Text * Di / Uc).toFixed(1);
+    TextBox1.value = (mespa * parseFloat(TextBox9.value) * Di / Uc).toFixed(1);
    
 //Rugosidade hidráulica
    
-    TextBox8.value = ((TextBox1.Text ^ 0.9) * e / Di).toFixed(2);
+    TextBox8.value = ((parseFloat(TextBox1.value) ^ 0.9) * e / Di).toFixed(2);
       
-    if (TextBox1.value < 2000 && OptionButton1.value == true){
+    if (TextBox1.value < 2000 && OptionButton1.checked){
         f = 64 / TextBox1.value;
         TextBox4.value = f.toFixed(4);
         Label12 = "Hagen-Poiseuille";
@@ -89,7 +91,7 @@ function CommandButton1_Click(){
         Label22 = "Fluxo Laminar";
         Label9 = "";
     
-    } else if (TextBox1.value < 2000 && OptionButton2.value == true){
+    } else if (TextBox1.value < 2000 && OptionButton2.checked){
         f = 64 / TextBox1.value;
         TextBox4.Text = f.toFixed(4);
         Label12 = "Hagen-Poiseuille";
@@ -104,7 +106,7 @@ function CommandButton1_Click(){
    
         while (Math.abs(deltaf / oldf) >= Er){
 
-            Newf = 1 / (-2 * Log(e / (3.7 * Di) + 2.51 / (TextBox1.value * Sqr(oldf))) * 0.434294482) ^ 2;
+            Newf = 1 / (-2 * Math.log(e / (3.7 * Di) + 2.51 / (TextBox1.value * Math.sqrt(oldf))) * 0.434294482) ^ 2;
             deltaf = Newf - oldf;
             oldf = Newf;
         }
@@ -116,7 +118,7 @@ function CommandButton1_Click(){
         
         //Para vazão em m³/h e diâmetro em mm
         
-        if ((TextBox1.value >= 3000) && (TextBox1.value <= 100000) && (OptionButton1.value = true) && (TextBox8.value <= 31)){
+        if ((TextBox1.value >= 3000) && (TextBox1.value <= 100000) && (OptionButton1.checked) && (TextBox8.value <= 31)){
                 
             f = 0.316 / (TextBox1.value) ^ 0.25
             TextBox4.value = f.toFixed(4);
@@ -127,7 +129,7 @@ function CommandButton1_Click(){
                     
         }
         
-        if ((TextBox1.value >= 3000) && (TextBox1.value <= 100000) && (OptionButton1.value == true) && (TextBox8.value > 31 && TextBox8.value < 448)){
+        if ((TextBox1.value >= 3000) && (TextBox1.value <= 100000) && (OptionButton1.checked) && (TextBox8.value > 31 && TextBox8.value < 448)){
             TextBox6.value = (6.376 * 10 ^ 6 * TextBox4.value * (Q ^ 2) * L / (Di ^ 5)).toFixed(2);
             Label12 = "Colebrook";
             Label22 = "Fluxo Turbulento";
@@ -136,7 +138,7 @@ function CommandButton1_Click(){
         
         //Para vazão em L/h e diâmetro em mm
         
-        if ((TextBox1.value >= 3000) && (TextBox1.value <= 100000) && (OptionButton2.value == true) && (TextBox8.value <= 31)){
+        if ((TextBox1.value >= 3000) && (TextBox1.value <= 100000) && (OptionButton2.checked) && (TextBox8.value <= 31)){
             f = 0.316 / (TextBox1.value) ^ 0.25;
             TextBox4.value = f.toFixed(4);
             TextBox6.value = (14.69 * (u / mespa) ^ 0.25 * (Q ^ 1.75) * L / (Di ^ 4.75)).toFixed(4);
@@ -155,7 +157,7 @@ function CommandButton1_Click(){
                                 
         //Para vazão em m³/h e diâmetro em mm
         
-        if ((TextBox1.value > 100000) && (OptionButton1.value == true) && (TextBox8.value > 31) && (TextBox8.value < 448)){
+        if ((TextBox1.value > 100000) && (OptionButton1.checked) && (TextBox8.value > 31) && (TextBox8.value < 448)){
 
             TextBox6.value = (6.376 * 10 ^ 6 * TextBox4.value * (Q ^ 2) * L / (Di ^ 5)).toFixed(2);
             Label12 = "Colebrook";
@@ -165,7 +167,7 @@ function CommandButton1_Click(){
         }            
         //Para vazão em L/h e diâmetro em mm
         
-        if ((TextBox1.value > 100000) && (OptionButton2.value == true) && (TextBox8.value) > 31  && (TextBox8.value < 448)){
+        if ((TextBox1.value > 100000) && (OptionButton2.checked) && (TextBox8.value) > 31  && (TextBox8.value < 448)){
             TextBox6.value = (6.376 * TextBox4.Text * (Q ^ 2) * L / (Di ^ 5)).toFixed(2);
             Label12 = "Colebrook";
             Label22 = "Fluxo Turbulento";
@@ -184,7 +186,6 @@ function CommandButton1_Click(){
         }
               
     }
-ActiveWorkbook.Save
 }
 
 function Frame2_Click(){

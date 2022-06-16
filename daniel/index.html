@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fator de Atrito Colebrook</title>
+</head>
+<body>
+    
+    <form action="">
+        <h3>Dados</h3>
+        <ul>
+            <li>
+                <label for="vazaoTotal">Vazao Total</label>
+                
+                <input type="radio" id="OptionButton1" name="vazaoTotal">
+                <label for="OptionButton1">m³/h</label>
+                <input type="radio" id="OptionButton2" name="vazaoTotal">
+                <label for="OptionButton1">L/h</label>
+                <input type="number" id="TextBox5" name="TextBox5">
+            </li>
+
+            <li>
+                <label for="temperaturaAgua">Temperatura da água C</label>
+                <input type="number" id="TextBox10" name="textBox10">
+            </li>
+    </ul>
+    </form>
+
+    <form action="">
+        <h3>Dados da tubulação</h3>
+        <ul>
+            <li><label for="">Comprimento da Tubulação(m)</label><input type="number" id="TextBox7" name="textBox7"></li>
+
+            <li><label for="">Material</label>
+                <select name="comboBox4" id="comboBox4">
+                    <option value="PEBD">PEBD</option>
+                    <option value="PVC">PVC</option>
+                    <option value="AZDº">AZD</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="">Rugosidade absoluta(mm)</label>
+                    <select name="ComboBox3" id="ComboBox3">
+                        <option value=""></option>
+                        <option value="">0.0015</option>
+                        <option value="">0.08</option>
+                        <option value="">0.15</option>
+                    </select>
+            </li>
+
+            <li>
+                <label for="">Diâmetro da tubulação</label>
+                    <select name="ComboBox1" id="ComboBox1">
+                        <option value="5.3">5.3</option> 
+                        <option value="13">13</option> 
+                        <option value="13.6">13.6</option> 
+                        <option value="16">16</option>
+                        <option value="20.6">20.6</option> 
+                        <option value="26.9">26.9</option> 
+                        <option value="35.7">35.7</option> 
+                        <option value="48.1">48.1</option> 
+                        <option value="72.5">72.5</option> 
+                        <option value="97.6">97.6</option>
+                    </select>
+            </li>
+
+            
+        </ul>
+    </form>
+
+    <button id="commandButton1" onclick="CommandButton1_Click()">Calcular</button>
+
+    <form action="">
+        <h3>Resultados</h3>
+        <ul>
+            <li><label for="">Label24: </label><input type="text" id="Label24"></li>
+
+            <li><label for="">Label14: </label><input type="text" id="Label14"></li>
+
+            <li><label for="">Label15: </label><input type="text" id="Label15"></li>
+
+            <li><label for="">Label12: </label><input type="text" id="Label12"></li>
+
+            <li><label for="">Label22: </label><input type="text" id="Label22"></li>
+
+            <li><label for="">Label09: </label><input type="text" id="Label9"></li>
+
+            <li><label for="">TextBox1: </label><input type="text" id="TextBox1"></li>
+
+            <li><label for="">TextBox8: </label><input type="text" id="TextBox8"></li>
+
+            <li><label for="">TextBox4: </label><input type="text" id="TextBox4"></li>
+
+            <li><label for="">TextBox6: </label><input type="text" id="TextBox6"></li>
+
+            <li><label for="">TextBox9: </label><input type="text" id="TextBox9"></li>
+        </ul>
+    </form>
+
+
+
+    
+
+    <script src="script2.js"></script>
+</body>
+</html>
