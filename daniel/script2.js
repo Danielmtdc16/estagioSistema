@@ -1,10 +1,46 @@
+function ComboBox4_Change(){
+    var ComboBox4 = document.getElementById(id);
+    var Label24 = document.getElementById(id);
+    var ComboBox3 = document.getElementById(id);
+
+    if(ComboBox4.value = "PEBD"){
+        Label24.value = "Polietileno de Baixa Densidade"
+        ComboBox3.Value = "0.0015"
+    }
+
+    if(ComboBox4.value = "PVC"){
+        Label24.value = "Penta Cloreto de Vinila"
+        ComboBox3.Value = "0.08"
+    }
+    if(ComboBox4.value = "AZDº"){
+        Label24.value = "Aço Zincado com Costura"
+        ComboBox3.Value = "0.15"
+    }
+}
+
 function CommandButton1_Click(){
     let Q, L, NR, e, Di, f, hf, RgHid, Tempa, Kelv, Lgu, Uc, u, Fct, mespa, QT, Dint;
+    
+    var TextBox5 = document.getElementById(id);
+    var TextBox7 = document.getElementById(id);
+    var ComboBox3 = document.getElementById(id);
+    var ComboBox3 = document.getElementById(id);
+    var TextBox10 = document.getElementById(id);
+    var Label14 = document.getElementById(id);
+    var OptionButton1 = document.getElementById(id);
+    var OptionButton2 = document.getElementById(id);
+    var TextBox9 = document.getElementById(id);
+    var TextBox8 = document.getElementById(id);
+    var TextBox4 = document.getElementById(id);
+    var TextBox6 = document.getElementById(id);
+    var TextBox1 = document.getElementById(id);
+    var Label12  = document.getElementById(id);
+    var Label9  = document.getElementById(id);
 
     Q = Val(TextBox5.value);
     L = Val(TextBox7.value);
     e = Val(ComboBox3.value);
-    Di = Val(ComboBox1.value);
+    Di = Val(ComboBox3.value);
     Tempa = Val(TextBox10.value);
 
 //viscosidade cinemática da água na lateral
