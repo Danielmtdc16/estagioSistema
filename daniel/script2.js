@@ -38,6 +38,8 @@ function CommandButton1_Click(){
     var TextBox1 = document.getElementById("TextBox1");
     var Label12  = document.getElementById("Label12");
     var Label9  = document.getElementById("Label9");
+    var Label22 = document.getElementById("Label22");
+    var Label15 = document.getElementById("Label15");
 
     Q = parseFloat(TextBox5.value);
     L = parseFloat(TextBox7.value);
@@ -48,23 +50,23 @@ function CommandButton1_Click(){
 //viscosidade cinemática da água na lateral
     
     Kelv = Tempa + 273.16;
-    Lgu = (-11.73) + (1828 / Kelv) + (0.01966 * Kelv) + (-0.00001466 * (Kelv ^ 2));
+    Lgu = (-11.73) + (1828 / Kelv) + (0.01966 * Kelv) + (-0.00001466 * (Math.pow(Kelv, 2)));
     u = ((Math.pow(10,Lgu)) / 100).toFixed(5);
     Uc = u * 1000;
-    Label14 = "  Viscosidade dinâmica:  " & Uc & " x 10-³ N.s/m²";
+    Label14 = "  Viscosidade dinâmica:  " + Uc + " x 10-³ N.s/m²";
     
 //massa específica e fator de correção da temperatura FCt na lateral
      
     Fct = ((Tempa - 3.983035) ^ 2) * (Tempa + 301.797) / (522528.9 * (Tempa + 69.34881));
     mespa = (1000 * (1 - Fct)).toFixed(2);
-    Label15 = "  Massa específica:  " & mespa & " kg/m³";
+    Label15 = "  Massa específica:  " + mespa + " kg/m³";
  
 //Velocidade da água na tubulação:
 
  //Para vazão em m³/h e diâmetro em mm
     
     if (OptionButton1.checked) {
-        TextBox9.Text = ((353.67765 * Q / Di ^ 2)).toFixed(2);
+        TextBox9.value = ((353.67765 * Q / (Math.pow(Di, 2)))).toFixed(2);
     }
     
   //Else
@@ -72,7 +74,7 @@ function CommandButton1_Click(){
 //Para vazão em L/h e diâmetro em mm
 
     else if (OptionButton2.checked){
-        TextBox9.value = (Q / (2.8274 * Di ^ 2)).toFixed(2);
+        TextBox9.value = (Q / (2.8274 * Math.pow(Di, 2))).toFixed(2);
     }
  
 //Nº de Ryenolds
@@ -81,21 +83,21 @@ function CommandButton1_Click(){
    
 //Rugosidade hidráulica
    
-    TextBox8.value = ((parseFloat(TextBox1.value) ^ 0.9) * e / Di).toFixed(2);
-      
+    TextBox8.value = (Math.pow(parseFloat(TextBox1.value), 0.9) * e / Di).toFixed(2);
+    
     if (TextBox1.value < 2000 && OptionButton1.checked){
         f = 64 / TextBox1.value;
         TextBox4.value = f.toFixed(4);
         Label12 = "Hagen-Poiseuille";
-        TextBox6.value = (11.536 * 10 ^ 8 * u / mespa * Q * L / (Di ^ 4)).toFixed(2);
+        TextBox6.value = (11.536 * Math.pow(10, 8) * u / mespa * Q * L / (Math.pow(Di, 4))).toFixed(2);
         Label22 = "Fluxo Laminar";
         Label9 = "";
     
     } else if (TextBox1.value < 2000 && OptionButton2.checked){
         f = 64 / TextBox1.value;
-        TextBox4.Text = f.toFixed(4);
+        TextBox4.value = f.toFixed(4);
         Label12 = "Hagen-Poiseuille";
-        TextBox6.value = (11.536 * 10 ^ 5 * u / mespa * Q * L / (Di ^ 4)).toFixed(3);
+        TextBox6.value = (11.536 * Math.pow(10, 5) * u / mespa * Q * L / (Math.pow(Di, 4))).toFixed(3);
         Label22 = "Fluxo Laminar";
         Label9 = "";
         
@@ -106,7 +108,7 @@ function CommandButton1_Click(){
    
         while (Math.abs(deltaf / oldf) >= Er){
 
-            Newf = 1 / (-2 * Math.log(e / (3.7 * Di) + 2.51 / (TextBox1.value * Math.sqrt(oldf))) * 0.434294482) ^ 2;
+            Newf = 1 / (Math.pow((-2 * Math.log(e / (3.7 * Di) + 2.51 / (TextBox1.value * Math.sqrt(oldf))) * 0.434294482), 2));
             deltaf = Newf - oldf;
             oldf = Newf;
         }
@@ -120,9 +122,9 @@ function CommandButton1_Click(){
         
         if ((TextBox1.value >= 3000) && (TextBox1.value <= 100000) && (OptionButton1.checked) && (TextBox8.value <= 31)){
                 
-            f = 0.316 / (TextBox1.value) ^ 0.25
+            f = 0.316 / (Math.pow((TextBox1.value), 0.25));
             TextBox4.value = f.toFixed(4);
-            TextBox6.value = (2.6125 * 10 ^ 6 * (u / mespa) ^ 0.25 * (Q ^ 1.75) * L / (Di ^ 4.75)).toFixed(4);
+            TextBox6.value = (2.6125 * Math.pow(10, 6) * Math.pow((u / mespa), 0.25) * Math.pow(Q, 1.75) * L / (Math.pow(Di, 4.75))).toFixed(4);
             Label12 = "Blasius";
             Label22 = "Fluxo Turbulento";
             Label9 = "&  Tubo Hidraulicamente Liso";
@@ -130,7 +132,7 @@ function CommandButton1_Click(){
         }
         
         if ((TextBox1.value >= 3000) && (TextBox1.value <= 100000) && (OptionButton1.checked) && (TextBox8.value > 31 && TextBox8.value < 448)){
-            TextBox6.value = (6.376 * 10 ^ 6 * TextBox4.value * (Q ^ 2) * L / (Di ^ 5)).toFixed(2);
+            TextBox6.value = (6.376 * Math.pow(10, 6) * TextBox4.value * Math.pow(Q, 2) * L / Math.pow(Di, 5)).toFixed(2);
             Label12 = "Colebrook";
             Label22 = "Fluxo Turbulento";
             Label9 = "&  Tubo Hidraulicamente misto";
@@ -139,9 +141,9 @@ function CommandButton1_Click(){
         //Para vazão em L/h e diâmetro em mm
         
         if ((TextBox1.value >= 3000) && (TextBox1.value <= 100000) && (OptionButton2.checked) && (TextBox8.value <= 31)){
-            f = 0.316 / (TextBox1.value) ^ 0.25;
+            f = 0.316 / (Math.pow(TextBox1.value, 0.25));
             TextBox4.value = f.toFixed(4);
-            TextBox6.value = (14.69 * (u / mespa) ^ 0.25 * (Q ^ 1.75) * L / (Di ^ 4.75)).toFixed(4);
+            TextBox6.value = (14.69 * Math.pow((u / mespa), 0.25) * Math.pow(Q, 1.75) * L / (Math.pow(Di, 4.75))).toFixed(4);
             Label12 = "Blasius";
             Label22 = "Fluxo Turbulento";
             Label9 = "&  Tubo Hidraulicamente Liso";
@@ -159,7 +161,7 @@ function CommandButton1_Click(){
         
         if ((TextBox1.value > 100000) && (OptionButton1.checked) && (TextBox8.value > 31) && (TextBox8.value < 448)){
 
-            TextBox6.value = (6.376 * 10 ^ 6 * TextBox4.value * (Q ^ 2) * L / (Di ^ 5)).toFixed(2);
+            TextBox6.value = (6.376 * 10 ^ 6 * TextBox4.value * Math.pow(Q, 2) * L / (Math.pow(Di, 5))).toFixed(2);
             Label12 = "Colebrook";
             Label22 = "Fluxo Turbulento";
             Label9 = "&  Tubo Hidraulicamente misto";
@@ -168,7 +170,7 @@ function CommandButton1_Click(){
         //Para vazão em L/h e diâmetro em mm
         
         if ((TextBox1.value > 100000) && (OptionButton2.checked) && (TextBox8.value) > 31  && (TextBox8.value < 448)){
-            TextBox6.value = (6.376 * TextBox4.Text * (Q ^ 2) * L / (Di ^ 5)).toFixed(2);
+            TextBox6.value = (6.376 * TextBox4.Text * Math.pow(Q, 2) * L / (Math.pow(Di, 5))).toFixed(2);
             Label12 = "Colebrook";
             Label22 = "Fluxo Turbulento";
             Label9 = "&  Tubo Hidraulicamente misto";
