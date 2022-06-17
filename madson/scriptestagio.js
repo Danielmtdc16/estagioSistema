@@ -2,15 +2,21 @@
 
 function CheckBox1_Click(){
 
+    let CheckBox2 = document.getElementById("CheckBox2");
+    let Label56 = document.getElementById("Label56");
+    let TextBox39 = document.getElementById("TextBox39")
+
     if(CheckBox1.value == true){
 
-    CheckBox2.Enabled = false;
-    Label56.visible = false
-    TextBox39.visible = false
-    TextBox18.visible = true
-    TextBox40.Enabled = true
-    CheckBox2.value = false
-    CheckBox3.value = false
+        
+
+        CheckBox2.enabled = false;
+        Label56.visible = false
+        TextBox39.visible = false
+        TextBox18.visible = true
+        TextBox40.enabled = true
+        CheckBox2.value = false
+        CheckBox3.value = false
     }
  
     else{
