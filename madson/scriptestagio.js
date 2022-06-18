@@ -2,9 +2,15 @@
 
 function CheckBox1_Click(){
 
+    let CheckBox1 = document.getElementById("CheckBox1");
     let CheckBox2 = document.getElementById("CheckBox2");
+    let CheckBox3 = document.getElementById("CheckBox3");
     let Label56 = document.getElementById("Label56");
-    let TextBox39 = document.getElementById("TextBox39")
+    let TextBox39 = document.getElementById("TextBox39");
+    let TextBox18 = document.getElementById("TextBox18");
+    let TextBox40 = document.getElementById("TextBox40");
+    
+
 
     if(CheckBox1.value == true){
 
@@ -20,25 +26,34 @@ function CheckBox1_Click(){
     }
  
     else{
-    CheckBox2.Enabled = true
-    Label56.visible = false
-    TextBox39.visible = false
-    TextBox18.visible = true
-    TextBox40.Enabled = false
+        CheckBox2.enabled = true
+        Label56.visible = false
+        TextBox39.visible = false
+        TextBox18.visible = true
+        TextBox40.enabled = false
     }
 
 }
 
 function CheckBox2_Click(){
 
+    let CheckBox1 = document.getElementById("CheckBox1");
+    let CheckBox2 = document.getElementById("CheckBox2");
+    let CheckBox3 = document.getElementById("CheckBox3");
+    let Label56 = document.getElementById("Label56");
+    let TextBox39 = document.getElementById("TextBox39");
+    let TextBox18 = document.getElementById("TextBox18");
+    let TextBox40 = document.getElementById("TextBox40");
+    
+
     if(CheckBox2.value == true){
 
-    CheckBox1.Enabled = false
-    CheckBox3.value = false
-    Label56.visible = false
-    TextBox39.visible = false
-    TextBox18.visible = true
-    TextBox40.Enabled = false
+        CheckBox1.Enabled = false
+        CheckBox3.value = false
+        Label56.visible = false
+        TextBox39.visible = false
+        TextBox18.visible = true
+        TextBox40.Enabled = false
     }
 
     else{
@@ -55,25 +70,76 @@ function CheckBox2_Click(){
 
 function CheckBox3_Click(){
 
-    if(CheckBox3.value == true){
+    let CheckBox1 = document.getElementById("CheckBox1");
+    let CheckBox2 = document.getElementById("CheckBox2");
+    let CheckBox3 = document.getElementById("CheckBox3");
+    let Label56 = document.getElementById("Label56");
+    let TextBox39 = document.getElementById("TextBox39");
+    let TextBox18 = document.getElementById("TextBox18");
 
-    CheckBox2.value = false
-    CheckBox1.value = false
-    Label56.visible = true
-    TextBox39.visible = true
-    TextBox18.visible = false
+
+    if(CheckBox3.value == true){
+        
+
+        CheckBox2.value = false
+        CheckBox1.value = false
+        Label56.visible = true
+        TextBox39.visible = true
+        TextBox18.visible = false
     }
     
     else{
 
-    Label56.visible = false
-    TextBox39.visible = false
-    TextBox18.visible = true
+        Label56.visible = false
+        TextBox39.visible = false
+        TextBox18.visible = true
     }
 
 }
 
+
+
 function CommandButton2_Click(){
+
+    let TextBox1 = document.getElementById("TextBox1");
+    let TextBox2 = document.getElementById("TextBox2");
+    let ComboBox7 = document.getElementById("ComboBox7");
+    let ComboBox1 = document.getElementById("ComboBox1");
+    let ComboBox2 = document.getElementById("ComboBox2");
+    let ComboBox3 = document.getElementById("ComboBox3");
+    let ComboBox4 = document.getElementById("ComboBox4");
+    let ComboBox5 = document.getElementById("ComboBox5");
+    let TextBox4 = document.getElementById("TextBox4");
+    let ComboBox6 = document.getElementById("ComboBox6");
+    let TextBox39 = document.getElementById("TextBox39");
+    let TextBox6 = document.getElementById("TextBox6");
+    let TextBox40 = document.getElementById("TextBox40");
+    let TextBox9 = document.getElementById("TextBox9");
+    let TextBox17 = document.getElementById("TextBox17");
+    let TextBox12 = document.getElementById("TextBox12");
+    let TextBox10 = document.getElementById("TextBox10");
+    let TextBox15 = document.getElementById("TextBox15");
+    let Label54 = document.getElementById("Label54");
+    let Label27 = document.getElementById("Label27");
+    let TextBox11 = document.getElementById("TextBox11");
+    let TextBox13 = document.getElementById("TextBox13");
+    let TextBox14 = document.getElementById("TextBox14");
+    let TextBox16 = document.getElementById("TextBox16");
+    let CheckBox2 = document.getElementById("CheckBox2");
+    let TextBox18 = document.getElementById("TextBox18");
+    let Label29 = document.getElementById("Label29");
+    let TextBox19 = document.getElementById("TextBox19");
+    let Label23 = document.getElementById("Label23");
+    let TextBox7 = document.getElementById("TextBox7");
+    let TextBox8 = document.getElementById("TextBox8");
+    let CheckBox3 = document.getElementById("CheckBox3");
+    let CheckBox1 = document.getElementById("CheckBox1");
+    let Label56 = document.getElementById("Label56");
+
+
+
+
+
 
     let Qsuc, Lsuc, Dsuc, Rgsuc, Ke, Kvg, kc, Kvpc, Alt, Temp, NPSH;
     let Hfls, Hfss, Patm, Pv, HfTs, Zscritica, Pes, Vs, Zsmax, NPSHd, Zspre;
@@ -129,13 +195,13 @@ function CommandButton2_Click(){
     //'Pressão de vapor da água em função da temperatura
     
     logPv = 8.0701 - 1730.6 / (tempa + 233.4);
-    PvHg = 10 ^ logPv;
+    PvHg = Math.pow(10, logPv);
     Pvm = PvHg * 10.33 / 760;
     TextBox17.value = (Pvm).toFixed(2);
     
     //'Velocidade da água na tubulação de sucção
 
-    TextBox12.value = (353.6775 * Qsuc / (Dsuc ^ 2)).toFixed(2);
+    TextBox12.value = (353.6775 * Qsuc / (Dsuc ^ 2)).toFixed(2);//
         
     //'Número de Reynolds na sucção
 
@@ -215,7 +281,7 @@ function CommandButton2_Click(){
 
     TextBox19.value = (Patm - (Zscritica + Pvm + HfTs)).toFixed(2)
     Label23.Caption = "NPSH disponível limiar (m)"
-    NPSHd = Math.abs(TextBox19.Text)
+    NPSHd = Math.abs(TextBox19.value)
     //era um CDbl
     
     //'Pressão na secção de entrada da bomba na sucção positiva
@@ -283,7 +349,7 @@ function CommandButton2_Click(){
     TextBox18.visible = false
     Zsmod = (-1 * Zs).toFixed(2)
     
-    Label29 = "Altura estática de sucção mínima de: " & Zsmod & " m abaixo do nível inferior da água no reservatório.";
+    Label29 = "Altura estática de sucção mínima de: " + Zsmod + " m abaixo do nível inferior da água no reservatório.";
     //Label29.ForeColor = &H4000&
     }
 
@@ -294,8 +360,11 @@ function CommandButton2_Click(){
     alert("Velocidade da água na Tubulação de sucção acima do limite permitido. Escolha um diâmetro imdiatamente superior");
     
     }
+    
+    } 
+}// fim da funcao
 
-} // fim da funcao
+
 
 function CommandButton3_Click(){
 
@@ -452,6 +521,7 @@ function CommandButton3_Click(){
         
     }
 }
+}
 
 function Label11_Click(){
 
@@ -484,9 +554,9 @@ function Label11_Click(){
 //
 //'End Sub
 
-function OptionButton3_Click()
+function OptionButton3_Click(){
 
-if (OptionButton3.value = true){
+if(OptionButton3.value = true){
 
     Label40.visible = false;
     TextBox26.visible = false;
@@ -494,6 +564,7 @@ if (OptionButton3.value = true){
 }
 
 }
+
 
 function OptionButton4_Click(){
 
@@ -504,7 +575,7 @@ function OptionButton4_Click(){
         TextBox26.value = " "
     }
 
-}
+
 
 function OptionButton5_Click(){
 
@@ -517,7 +588,7 @@ if (OptionButton5.value = true){
 
 }
 
-function UserForm_Initialize(){
+//function UserForm_Initialize(){
 
     //ComboBox7.AddItem "48.1"
     //ComboBox7.AddItem "72.5"
@@ -551,4 +622,5 @@ function UserForm_Initialize(){
     //ComboBox12.AddItem "0.00334"
     //ComboBox12.AddItem "0.15"
 //
-}
+//}
+
