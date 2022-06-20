@@ -34,7 +34,8 @@
             <li><label for="">Comprimento da Tubulação(m)</label><input type="number" id="TextBox7" name="textBox7"></li>
 
             <li><label for="">Material</label>
-                <select name="comboBox4" id="comboBox4">
+                <select name="comboBox4" id="ComboBox4" class="um" onchange="ComboBox4_Change()">
+                    <option value=""></option>
                     <option value="PEBD">PEBD</option>
                     <option value="PVC">PVC</option>
                     <option value="AZDº">AZD</option>
@@ -43,17 +44,18 @@
 
             <li>
                 <label for="">Rugosidade absoluta(mm)</label>
-                    <select name="ComboBox3" id="ComboBox3">
+                    <select name="ComboBox3" id="ComboBox3" class="um">
                         <option value=""></option>
                         <option value="0.0015">0.0015</option>
                         <option value="0.08">0.08</option>
-                        <option value="0.08">0.08</option>
+                        <option value="0.15">0.15</option>
                     </select>
             </li>
 
             <li>
                 <label for="">Diâmetro da tubulação</label>
                     <select name="ComboBox1" id="ComboBox1">
+                        <option value=""></option>
                         <option value="5.3">5.3</option> 
                         <option value="13">13</option> 
                         <option value="13.6">13.6</option> 
@@ -86,7 +88,7 @@
 
             <li><label for="">Label22: </label><input type="text" id="Label22"></li>
 
-            <li><label for="">Label09: </label><input type="text" id="Label9"></li>
+            <li><label for="">Label9: </label><input type="text" id="Label9"></li>
 
             <li><label for="">TextBox1: </label><input type="text" id="TextBox1"></li>
 
