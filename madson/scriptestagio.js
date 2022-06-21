@@ -151,19 +151,19 @@ function CommandButton2_Click(){
 
     let decisao;
 
-    Qsuc = TextBox1.value;
-    Lsuc = TextBox2.value;
-    Dsuc = ComboBox7.value;
-    Rgsuc = ComboBox1.value;
-    Ke = ComboBox2.value;
-    Kvg = ComboBox3.value;
-    kc = ComboBox4.value;
-    Kvpc = ComboBox5.value;
-    Alt = TextBox4.value;
-    tempa = ComboBox6.value;
-    ZsAfog = TextBox39.value;
-    NPSH = TextBox6.value;
-    Zspre = TextBox40.value;
+    Qsuc = parseFloat(TextBox1.value);
+    Lsuc = parseFloat(TextBox2.value);
+    Dsuc = parseFloat(ComboBox7.value);
+    Rgsuc = parseFloat(ComboBox1.value);
+    Ke = parseFloat(ComboBox2.value);
+    Kvg = parseFloat(ComboBox3.value);
+    kc = parseFloat(ComboBox4.value);
+    Kvpc = parseFloat(ComboBox5.value);
+    Alt = parseFloat(TextBox4.value);
+    tempa = parseFloat(ComboBox6.value);
+    ZsAfog = parseFloat(TextBox39.value);
+    NPSH = parseFloat(TextBox6.value);
+    Zspre = parseFloat(TextBox40.value);
 
     if ((TextBox1.value == "") || (TextBox2.value == "") || (TextBox4.value == "") || (TextBox6.value == "") || (ComboBox6.value == "")) {
     
@@ -188,7 +188,7 @@ function CommandButton2_Click(){
     //'Peso específico da água
 
     TextBox9.value = (mespa * 9.81).toFixed(2);
-    Pes = TextBox9.value;
+    Pes = parseFloat(TextBox9.value);
     
     //'Pressão de vapor da água em função da temperatura
     
@@ -203,13 +203,13 @@ function CommandButton2_Click(){
         
     //'Número de Reynolds na sucção
 
-    TextBox10.value = (mespa * TextBox12.value * (Dsuc / 1000) / u).toFixed(1);
+    TextBox10.value = (mespa * parseFloat(TextBox12.value) * (Dsuc / 1000) / u).toFixed(1);
 
     //'Derterminação do fator de atrito e do regime de escoamento na sucção
 
-        if (TextBox10.value <= 2300) {
+        if (parseFloat(TextBox10.value) <= 2300) {
         
-            TextBox15.value = (64 / TextBox10.value).toFixed(2);
+            TextBox15.value = (64 / parseFloat(TextBox10.value)).toFixed(2);
             Label27.value = "Escoamento Laminar";
             //'Label27.ForeColor = &H4000&
                     
@@ -218,7 +218,7 @@ function CommandButton2_Click(){
             oldf = 1;
             deltaf = oldf;
             while( Math.abs(deltaf / oldf) >= er){
-                Newf = 1 / Math.pow((-2 * Math.log(Rgsuc / (3.7 * Dsuc) + 2.51 / (TextBox10.value * Math.sqrt(oldf))) * 0.434294482), 2);
+                Newf = 1 / Math.pow((-2 * Math.log(Rgsuc / (3.7 * Dsuc) + 2.51 / (parseFloat(TextBox10.value) * Math.sqrt(oldf))) * 0.434294482), 2);
                 deltaf = Newf - oldf;
                 oldf = Newf;
             }
@@ -226,7 +226,7 @@ function CommandButton2_Click(){
             TextBox11.value = (F).toFixed(4);
         }
         
-        if (TextBox10.value >= 4000){
+        if (parseFloat(TextBox10.value) >= 4000){
             
             Label27.value = "Escoamento Turbulento";
            // 'Label27.ForeColor = &H4000&
@@ -234,26 +234,26 @@ function CommandButton2_Click(){
                 
     //'Perda de carga distribuída na sucção
 
-    TextBox13.value = (6.376 * Math.pow(10, 6) * TextBox11.value * Math.pow(Qsuc, 2) * Lsuc / Math.pow(Dsuc, 5)).toFixed(2);
-    Hfls = Math.abs(TextBox13.value); 
+    TextBox13.value = (6.376 * Math.pow(10, 6) * parseFloat(TextBox11.value) * Math.pow(Qsuc, 2) * Lsuc / Math.pow(Dsuc, 5)).toFixed(2);
+    Hfls = Math.abs(parseFloat(TextBox13.value)); 
     //era um CDbl
         
     //'Perda de carga nas singularidades da sucção
 
-    TextBox14.value = ((Ke + Kvg + kc + Kvpc) * Math.pow(TextBox12.Text, 2) / 19.62).toFixed(2);
-    Hfss = Math.abs(TextBox14.value);
+    TextBox14.value = ((Ke + Kvg + kc + Kvpc) * Math.pow(parseFloat(TextBox12.value), 2) / 19.62).toFixed(2);
+    Hfss = Math.abs(parseFloat(TextBox14.value));
     //era um CDbl
 
     //'Perda de carga total na sucção
 
     TextBox15.value = (Hfls + Hfss).toFixed(2);
-    HfTs = Math.abs(TextBox15.value);
+    HfTs = Math.abs(parseFloat(TextBox15.value));
     //era um CDbl
 
     //'Pressão atmosférica local
 
     TextBox16.value = Math.pow(10.33 * ((293 - 0.0065 * Alt) / 293), 5.26).toFixed(2);
-    Patm = Math.abs(TextBox16.value);
+    Patm = Math.abs(parseFloat(TextBox16.value));
     //era um CDbl
 
     //'Altura estática de sucção positiva
@@ -263,7 +263,7 @@ function CommandButton2_Click(){
         //'Altura estática de sucção
 
         TextBox18.value = (Patm - (NPSH + Pvm + HfTs)).toFixed(2);
-        Zscritica = Math.abs(TextBox18.value);
+        Zscritica = Math.abs(parseFloat(TextBox18.value));
         //era um CDbl
         
         //'Altura estática de sucção real
@@ -279,18 +279,18 @@ function CommandButton2_Click(){
 
         TextBox19.value = (Patm - (Zscritica + Pvm + HfTs)).toFixed(2);
         Label23.value = "NPSH disponível limiar (m)";
-        NPSHd = Math.abs(TextBox19.value);
+        NPSHd = Math.abs(parseFloat(TextBox19.value));
         //era um CDbl
         
         //'Pressão na secção de entrada da bomba na sucção positiva
         
         //Em KPa
         
-        TextBox7.value = (-TextBox9.value * (Zsreal + (Math.pow(TextBox12.value, 2) / 19.62) + HfTs) / 1000).toFixed(2);
+        TextBox7.value = (parseFloat(TextBox9.value) * (Zsreal + (Math.pow(parseFloat(TextBox12.value), 2) / 19.62) + HfTs) / 1000).toFixed(2);
 
         //Em mca
         
-        TextBox8.value = (-(Zsreal + (Math.pow(TextBox12.value, 2) / 19.62) + HfTs)).toFixed(2);
+        TextBox8.value = (-(Zsreal + (Math.pow(parseFloat(TextBox12.value), 2) / 19.62) + HfTs)).toFixed(2);
         
     }
 
@@ -303,17 +303,17 @@ function CommandButton2_Click(){
         TextBox19.value = (Patm + ZsAfog - (Pvm + HfTs)).toFixed(2);
         Label23.value = "NPSH disponível (m)";
         //'Label29.visible = false;
-        NPSHd = Math.abs(TextBox19.value);
+        NPSHd = Math.abs(parseFloat(TextBox19.value));
         
         //'Pressão na secção de entrada da bomba
         
         //'Em mca
         
-        TextBox8.value = (ZsAfog - HfTs - (Math.pow(TextBox12.value, 2) / 19.62)).toFixed(2);
+        TextBox8.value = (ZsAfog - HfTs - (Math.pow(parseFloat(TextBox12.value), 2) / 19.62)).toFixed(2);
         
         //'Em KPa
             
-        TextBox7.value = (Pes * TextBox8.value / 1000).toFixed(2);
+        TextBox7.value = (Pes * parseFloat(TextBox8.value) / 1000).toFixed(2);
             
         Label29.value = "Altura estática de sucção mínima de: " + ZsAfog + " m abaixo do nível inferior da água no reservatório.";
         //Label29.ForeColor = &H4000&
@@ -330,11 +330,11 @@ function CommandButton2_Click(){
 
         //'Em KPa
         
-        TextBox7.value = (-TextBox9.value * (Zspre + (Math.pow(TextBox12.value, 2) / 19.62) + HfTs) / 1000).toFixed(2);
+        TextBox7.value = (-parseFloat(TextBox9.value) * (Zspre + (Math.pow(parseFloat(TextBox12.value), 2) / 19.62) + HfTs) / 1000).toFixed(2);
 
         //'Em mca
         
-        TextBox8.value = (-(Zspre + (Math.pow(TextBox12.value, 2) / 19.62) + HfTs)).toFixed(2);
+        TextBox8.value = (-(Zspre + (Math.pow(parseFloat(TextBox12.value), 2) / 19.62) + HfTs)).toFixed(2);
     }
 
     if ((CheckBox2.value == true) && (Zs < 0)) {
@@ -352,7 +352,7 @@ function CommandButton2_Click(){
 
     //'Limite de velocidade na tubulação de sucção
 
-    if (TextBox12.value > 1.5) {
+    if (parseFloat(TextBox12.value > 1.5)) {
 
         alert("Velocidade da água na Tubulação de sucção acima do limite permitido. Escolha um diâmetro imdiatamente superior");
 
