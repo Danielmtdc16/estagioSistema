@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>montagem a montante</title>
+	<style>
+		.pDiv{
+
+		}
+		.a{
+	</style>
+</head>
+<link rel="stylesheet" type="text/css" href="format.css">
+<body>
+	<article>
+		<fieldset>
+		<div class= "pDiv">
+			<h2> MONTAGEM Á MONTANTE </h2>
+
+			<!--inicio-->
+
+			<h4> Dados da tubulação á montante/sucção</h4>
+
+
+			<label for="V"> vazão(m³/h)</label>
+			<input type="number" name="">
+			<br><br>
+
+			<label for="Dm"> Diâmetro</label>
+			<input type="number" name="">
+			<br><br>
+			<label for=Compr>Comprimento(m)</label>
+			<input type="number" name="">
+			<br><br>
+			<label for=Rug>Rugosidade(mm)</label>
+			<input type="number" name="">
+			<br><br>
+			<label for=AL>Altitude Local(m)</label>
+			<input type="number" name="">
+			<br><br>
+			<label for="Ta">Temperatura da água(°C)</label>
+			<input type="number" name="">
+			<br><br>
+			<label for="NPSH">NPSH requerido(m)</label>
+			<input type="number" name="">
+
+
+		</div>
+
+		<!--peças/singularidade-->
+
+		<div class= "pDiv">
+			<div class="a">
+
+				<h4> Peças/Singularidade</h4>
+
+				<label for="ke">KE:</label>
+				<input type="number" name="">
+
+				<label for="kc">KC:</label>
+				<input type="number" name="">
+
+
+				<label for="krg">KRG:</label>
+				<input type="number" name="">
+				
+
+				<label for="kvpc">KVPC:</label>
+				<input type="number" name="">
+				<br><br>
+			</div>	
+		</div>
+
+
+				<div><h4>Posição da tubulação na Sucção</h4>
+
+					<label for="po">Positivo</label>
+					<input type="checkbox" name=""> 
+
+					<label for="Ne">Negativo</label>
+					<input type="checkbox" name="">
+					<br>
+
+					<label>Altura estática de sucção positiva pré definida</label>
+					<input type="number" name="">
+					<br>
+
+					<label>Altura da sucção</label>
+					<input type="number" name="">
+
+
+
+				</div>
+
+			
+					<br><br>
+				
+			
+		
+				<button><b>Calcular</b></button>
+				<br>
+
+		
+		</div>
+
+		
+		<div><h2>Resultados</h2>
+
+		
+			
+
+		
+
+			<table border="1">
+				<tr><td>
+					<label>peso específico da água</label> 
+					<input type="number" name="">     
+					 	<label>Perda de carga distribuida</label>
+						<input type="number" name=""></td></tr>
+				<tr><td>
+					<label>Numero de Ryenolds</label>
+					<input type="number" name="">
+						<label>perda de carga singular(m)</label>
+						<input type="number" name="">
+				</td></tr>
+				<tr><td>
+					<label>Fator de atrito(f)</label>
+					<input type="number" name="">
+						<label>Perda de carga total(m)</label>
+						<input type="number" name="">
+				</td></tr>
+				<tr><td>
+					<label>Velocidade da água(m)</label>
+					<input type="number" name="">
+						<label>Patm Local(m)</label>
+						<input type="number" name="">
+				</td></tr>
+
+				<tr><td>
+					<label>Pressão do vapor da d´água </label>
+					<input type="number" name="">
+						<label>Altura estática de sucção crítica</label>
+						<input type="number" name="">
+				</td></tr>
+
+				<tr><td>
+					<label>NPSH disponível limiar(m)</label>
+					<input type="number" name="">
+
+				</td></tr>
+				<tr><td>
+					<label>Pressão na admissão da bomba:</label>
+						<p>Em (Kpa)<input type="number" name=""> Em(mca)<input type="number" name=""></p>
+
+				</td></tr>
+
+
+			</table>
+
+
+
+
+		</fieldset>	
+
+
+		</div>
+
+	</article>
+
+</body>
+</html>
