@@ -366,11 +366,25 @@ function CommandButton3_Click(){
     let Lrec, Drec, Rgrec, Aer, d, Kvgr, Kvr, kcr, Filt, Psd, Qrec;
     let Hftr, HfLr, HfSr, Vr, Vsuc, PesAg, PAdm, PSaida, Hb, Rend, PotB;
     let tempa, Fct, Kelv, mespa, Lgu, u;
-    let TextBox1 = document.getElementById("TextBox1")
+
+    let TextBox1 = document.getElementById("TextBox1");
+    let TextBox8 = document.getElementById("TextBox8");
+    let TextBox9 = document.getElementById("TextBox9");
+    let TextBox12 = document.getElementById("TextBox12");
     let TextBox20 = document.getElementById("TextBox20");
+    let TextBox23 = document.getElementById("TextBox23");
     let TextBox27 = document.getElementById("TextBox27");
     let TextBox28 = document.getElementById("TextBox28");
     let TextBox29 = document.getElementById("TextBox29");
+    let TextBox30 = document.getElementById("TextBox30");
+    let TextBox31 = document.getElementById("TextBox31")
+    let TextBox32 = document.getElementById("TextBox32");
+    let TextBox33 = document.getElementById("TextBox33");
+    let TextBox34 = document.getElementById("TextBox34");
+    let TextBox35 = document.getElementById("TextBox35");
+    let TextBox36 = document.getElementById("TextBox36");
+    let TextBox37 = document.getElementById("TextBox37");
+    let TextBox38 = document.getElementById("TextBox38");
     let ComboBox11 = document.getElementById("ComboBox11");
 
     Qrec = parseFloat(TextBox1.value);
@@ -406,7 +420,7 @@ function CommandButton3_Click(){
     
         alert("Preenchimento do campo obrigatório.");
         
-    }else{ 
+    } else { 
         //'Número de Reynolds no recalque
 
         //'TextBox27.Text = Format(352610 * Qrec / Drec, "0") //ele comentou!!
@@ -415,9 +429,9 @@ function CommandButton3_Click(){
 
         //'Derterminação do fator de atrito e do regime de escoamento no recalque
 
-        if (TextBox27.value <= 2300){
+        if (parseFloat(TextBox27.value) <= 2300){
         
-            TextBox28.value = (64 / TextBox27.value).toFixed(2)
+            TextBox28.value = (64 / TextBox27.value).toFixed(2);
             //'Label27 = "Escoamento Laminar"
             //'Label27.ForeColor = &H4000&
                     
@@ -426,7 +440,7 @@ function CommandButton3_Click(){
             oldfr = 1;
             deltafr = oldfr;
             while (Math.abs(deltafr / oldfr) >= er){
-                Newfr = 1 / Math.pow((-2 * Log(Rgrec / (3.7 * Drec) + 2.51 / (TextBox27.value * Sqr(oldfr))) * 0.434294482), 2);
+                Newfr = 1 / Math.pow((-2 * Math.log(Rgrec / (3.7 * Drec) + 2.51 / (parseFloat(TextBox27.value) * Math.sqrt(oldfr))) * 0.434294482), 2);
                 deltafr = Newfr - oldfr;
                 oldfr = Newfr;
             }
@@ -434,9 +448,9 @@ function CommandButton3_Click(){
             TextBox28.value = (Fr).toFixed(4);
         }
 
-        if (TextBox27.value >= 4000){
+        if (parseFloat(TextBox27.value) >= 4000){
             
-            Label27.value = "Escoamento Turbulento";
+            Label27.innerHTML = "Escoamento Turbulento";
             //'Label27.ForeColor = &H4000&
         }
     }
@@ -448,44 +462,43 @@ function CommandButton3_Click(){
     // era um CDBL
     
     if (Vr > 2){
-
         alert("Velocidade da água na Tubulação de Recalque acima do limite permitido.");
     }
 
     //'Perda de carga distribuída no recalque
 
-    TextBox30.value = (6.3735 * TextBox28.value * Math.pow((1000 * Qrec), 2) * Lrec / Math.pow(Drec, 5)).toFixed(2);
-    HfLr = Math.abs(TextBox30.value);
+    TextBox30.value = (6.3735 * parseFloat(TextBox28.value) * Math.pow((1000 * Qrec), 2) * Lrec / Math.pow(Drec, 5)).toFixed(2);
+    HfLr = Math.abs(parseFloat(TextBox30.value));
     
     //'Perda de carga nas singularidades do realque
 
-    TextBox31.Text = ((Kvr + Kvgr + kcr) * Math.pow(TextBox29.value, 2) / 19.62).toFixed(2);
-    HfSr = CDbl(TextBox31.value);
+    TextBox31.value = ((Kvr + Kvgr + kcr) * Math.pow(parseFloat(TextBox29.value), 2) / 19.62).toFixed(2);
+    HfSr = Math.abs(parseFloat(TextBox31.value));
 
     //'Perda de carga total no recalque
 
     TextBox32.value = (HfLr + HfSr).toFixed(2);
-    Hftr = CDbl(TextBox32.value);
+    Hftr = Math.abs(parseFloat(TextBox32.value));
     
     //'Pressão na secção de saída da bmba
 
     //'Em mca
 
     TextBox34.value = (Psd + (Aer - d) + Hftr + Filt).toFixed(2);
-    PSaida = Math.abs(TextBox34.value);
+    PSaida = Math.abs(parseFloat(TextBox34.value));
         
     //'Em KPa
     
-    PesAg = Math.abs(TextBox9.value); // 'Peso específico da água
+    PesAg = Math.abs(parseFloat(TextBox9.value)); // 'Peso específico da água
     TextBox33.value = (PesAg * (Psd + (Aer - d) + Hftr) / 1000).toFixed(2);
         
     //'Carga da bomba
 
-    PAdm = Math.abs(TextBox8.value)
-    Vsuc = Math.abs(TextBox12.value)
+    PAdm = Math.abs(TextBox8.value);
+    Vsuc = Math.abs(TextBox29.value);
     
     TextBox35.value = ((PSaida - PAdm) + ((Math.pow(Vr, 2) - Math.pow(Vsuc, 2)) / 19.62) + d).toFixed(2);
-    Hb = Math.abs(TextBox35.value);
+    Hb = Math.abs(parseFloat(TextBox35.value));
 
     //Era um CDBL
     
@@ -493,8 +506,8 @@ function CommandButton3_Click(){
 
     //'Em KW
     
-    TextBox36.value = (((PesAg * (Qrec / 3600) * Hb) / (Rend / 100) / 1000)).toFixed(2)
-    PotB = CDbl(TextBox36.value)
+    TextBox36.value = (((PesAg * (Qrec / 3600) * Hb) / (Rend / 100) / 1000)).toFixed(2);
+    PotB = Math.abs(parseFloat(TextBox36.value));
     
     //'Em CV
     
@@ -534,7 +547,7 @@ function Label11_Click(){
 
 function OptionButton3_Click(){
 
-    if(OptionButton3.value == true){
+    if(OptionButton3.checked){
 
         Label40.visible = false;
         TextBox26.visible = false;
@@ -546,7 +559,7 @@ function OptionButton3_Click(){
 
 function OptionButton4_Click(){
 
-    if (OptionButton4.value == true){
+    if (OptionButton4.checked){
 
         Label40.visible = false;
         TextBox26.visible = false;
@@ -556,7 +569,7 @@ function OptionButton4_Click(){
 
 function OptionButton5_Click(){
 
-    if (OptionButton5.value == true){
+    if (OptionButton5.checked){
 
         Label40.visible = true;
         TextBox26.visible = true;
