@@ -15,23 +15,26 @@
         <h3>Descarga da tubulação justante</h3>
             <table border="1">
                 <tr><td>
-                    <label for="Li"> Livre</label>
-                    <input type="radio" name="">
-                    <label for="Imer">Imersa</label>
-                    <input type="radio" name="">
-                    <label for="pressu">Pressurizada</label>
-                    <input type="radio">
+                    <label for="OptionButton3">Livre</label>
+                    <input type="radio" id = "OptionButton3" name = "tipo-descarga">
+
+                    <label for="OptionButton4">Imersa</label>
+                    <input type="radio" id = "OptionButton4" name = "tipo-descarga">
+
+                    <label for="OptionButton5">Pressurizada</label>
+                    <input type="radio" id = "OptionButton5" name = "tipo-descarga">
                 </td></tr>
             </table>
     </div>
     
     <div>
-        <h3>Descarga da tubulação justante</h3> 
+        <h3>Dados da tubulação à jusante</h3> 
         
-            <label for="TextBox20">Comprimento(m)</label>
+            <label for="TextBox20" id = "Label30">Comprimento(m)</label>
             <input type="number" name="" id="TextBox20">
             <br>
-            <label for="ComboBox11">Diâmetro(mm)</label>
+
+            <label for="ComboBox11" id = "Label31">Diâmetro(mm)</label>
             <select id="ComboBox11">
                 <option value=""></option>
                 <option value="48.1">48.1</option>
@@ -39,71 +42,87 @@
                 <option value="97.6">97.6</option>
             </select>
             <br>
-            <label for="rugs">Rugosidade absoluta(mm)</laber>
-            <input type="number" name="">
+
+            <label id="Label32" id = "ComboBox12">Rugosidade absoluta(mm)</laber>
+            <input type="number" id ="ComboBox12">
             <br>
-            <label for="altest">Altura Estática de recalque(m)</label>
-            <input type="number" name="">
+
+            <label id="Label33" for="TextBox23">Altura Estática de recalque(m)</label>
+            <input type="number" id = "TextBox23">
             <br>
-            <label for="distbomb">Distância entre a entrada e saída da bomba(m)</label>
-            <input type="number" name="">
+
+
+            <label id="Label34" for="TextBox24">Distância entre a entrada e saída da bomba(m)</label>
+            <input type="number" id="TextBox24">
     </div>
     <div>
 
+
         <h3>Peças/Singularidades</h3>
-            <label for="krg">Krg</label>
-            <input type="number" name="">
-            <label for="kvr">Kvr</label>
-            <input type="number" name="">
-            <label for="kc">Kc</label>
-            <input type="number" name="">
-            <label for="filtr">Filtros/outras</label>
-            <input type="number" name="">
+
+            <label for = "ComboBox8" id="Label36">Krg</label>
+            <input type="number" id="ComboBox8">
+
+            <label  for = "ComboBox9" id="Label37">Kvr</label>
+            <input type="number" id="ComboBox9">
+
+            <label  for = "ComboBox10" id="Label38">Kc</label>
+            <input type="number" id="ComboBox10">
+
+            <label  for = "TextBox25" id="Label39">Filtros/outras</label>
+            <input type="number" id="TextBox25">
             <br>
             <br>
 
-            <label>Rendimento da bomba(%)</label><input type="number">
+            <label for="TextBox38" id = "Label53">Rendimento da bomba(%)</label><input type="number" id = "TextBox38">
+
+            <label for="TextBox26" id = "Label40">Pressao na secção de descarga (mca)</label>
+            <input type= "number" id = "TextBox26">
+
             <br><br>
-    <button><b>Calcular</b></button>
+    <button onclick="CommandButton3_Click()"><b>Calcular</b></button>
     <br><br>
     <div>
         <fieldset>
             <h3>Resultados</h3>
-                <label for="TextBox27">Número de Ryenolds</label>
-                <input type="number" name="" id="TextBox27">
+                <label for="TextBox27" id = "Label41">Número de Ryenolds</label>
+                <input type="number" id="TextBox27">
 
                 <br>
 
-                <label for="TextBox28">Fator de atrito(F)</label>
+                <label id = "Label42" for="TextBox28">Fator de atrito(F)</label>
                 <input type="number" name="" id="TextBox28">
 
                 <br>
 
-                <label for="TextBox29">Velocidade da água(m/s)</label>
+                <label for="TextBox29" id = "Label43">Velocidade da água(m/s)</label>
                 <input type="number" name="" id="TextBox29">
 
                 <br>
 
-                <label for="perdCargD">Perda de carga distribluida(m)</label>
-                <input type="number" name="">
+                <label for="TextBox30" id = "Label44">Perda de carga distribluida(m)</label>
+                <input type="number" id="TextBox30">
 
                 <br>
 
-                <label for="perdCargS">Perda de carga singular(m)</label>
-                <input type="number" name="">
+                <label for="TextBox31" id = "Label45">Perda de carga singular(m)</label>
+                <input type="number" id="TextBox31">
 
                 <br>
 
-                <label for="perdCargT"> Perda de carga total(m)</label>
-                <input type="number" name="">
+                <label for="TextBox32" id ="Label46"> Perda de carga total(m)</label>
+                <input type="number" id="TextBox32">
+                <hr>
 
-                <p>pressão na saída da bomba:</p>
-                <label for="em">Em (kpa)</label><input type="number" name="">
+                <p id = "Label47">Pressão na saída da bomba:</p>
 
-                <label for="emmca">Em(mca)</label><input type="number" name="">
+                <label for="TextBox33" id = "Label48">Em (kpa)</label><input type="number" id="TextBox33">
+
+                <label id = "Label49" for="TextBox34">Em(mca)</label><input type="number" id="TextBox34">
                 <br><br>
-                <label for="carBombm">Carga da bomba(m)</label>
-                <input type="number" name="">
+
+                <label for="TextBox35" id ="Label50">Carga da bomba(m)</label>
+                <input type="number" id="TextBox35">
                 
 
         </fieldset>
@@ -111,8 +130,9 @@
         <fieldset>
             <p>Potência da bomba(m)</p>
 
-                <label for="kw">Em(kw)</label><input type="number" name="">
-                <label for="cv">Em(CV)</label><input type="number">
+                <label for="TextBox36" id ="Label51">Em(kw)</label><input type="number" id="TextBox36">
+
+                <label for="TextBox37" id = "Label52">Em(CV)</label><input type="number" id ="TextBox37">
         </fieldset>
 
 
