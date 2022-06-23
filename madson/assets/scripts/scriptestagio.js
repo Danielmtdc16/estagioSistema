@@ -366,24 +366,29 @@ function CommandButton3_Click(){
     let Lrec, Drec, Rgrec, Aer, d, Kvgr, Kvr, kcr, Filt, Psd, Qrec;
     let Hftr, HfLr, HfSr, Vr, Vsuc, PesAg, PAdm, PSaida, Hb, Rend, PotB;
     let tempa, Fct, Kelv, mespa, Lgu, u;
+    let TextBox1 = document.getElementById("TextBox1")
+    let TextBox20 = document.getElementById("TextBox20");
+    let TextBox27 = document.getElementById("TextBox27");
+    let TextBox28 = document.getElementById("TextBox28");
+    let TextBox29 = document.getElementById("TextBox29");
+    let ComboBox11 = document.getElementById("ComboBox11");
 
-    Qrec = TextBox1.value;
-    Lrec = TextBox20.value;
-    Drec = ComboBox11.value;
-    Rgrec = ComboBox12.value;
-    Aer = TextBox23.value;
-    d = TextBox24.value;
-    Kvgr = ComboBox8.value;
-    Kvr = ComboBox9.value;
-    kcr = ComboBox10.value;
-    Filt = TextBox25.value;
-    Psd = TextBox26.value;
-    PesAg = TextBox9.value;
-    PAdm = TextBox8.value;
-    Vsuc = TextBox12.value;
-    Rend = TextBox38.value;
-    tempa = ComboBox6.value;
-
+    Qrec = parseFloat(TextBox1.value);
+    Lrec = parseFloat(TextBox20.value);
+    Drec = parseFloat(ComboBox11.value);
+    Rgrec = parseFloat(ComboBox12.value);
+    Aer = parseFloat(TextBox23.value);
+    d = parseFloat(TextBox24.value);
+    Kvgr = parseFloat(ComboBox8.value);
+    Kvr = parseFloat(ComboBox9.value);
+    kcr = parseFloat(ComboBox10.value);
+    Filt = parseFloat(TextBox25.value);
+    Psd = parseFloat(TextBox26.value);
+    PesAg = parseFloat(TextBox9.value);
+    PAdm = parseFloat(TextBox8.value);
+    Vsuc = parseFloat(TextBox12.value);
+    Rend = parseFloat(TextBox38.value);
+    tempa = parseFloat(ComboBox6.value);
     //'viscosidade cinemática da água
 
     Kelv = tempa + 273.16;
