@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="cor.css">
+    <title>MONTAGEM Á JUSTANTE</title>
+    
+</head>
+
+<body>
+    <h2>Montagem á justante</h2>
+    <div>
+        <h3>Descarga da tubulação justante</h3>
+            <table border="1">
+                <tr><td>
+                    <label for="Li"> Livre</label>
+                    <input type="radio" name="">
+                    <label for="Imer">Imersa</label>
+                    <input type="radio" name="">
+                    <label for="pressu">Pressurizada</label>
+                    <input type="radio">
+                </td></tr>
+            </table>
+    </div>
+    
+    <div>
+        <h3>Descarga da tubulação justante</h3> 
+        
+            <label for="TextBox20">Comprimento(m)</label>
+            <input type="number" name="" id="TextBox20">
+            <br>
+            <label for="ComboBox11">Diâmetro(mm)</label>
+            <select id="ComboBox11">
+                <option value=""></option>
+                <option value="48.1">48.1</option>
+                <option value="72.5">72.5</option>
+                <option value="97.6">97.6</option>
+            </select>
+            <br>
+            <label for="rugs">Rugosidade absoluta(mm)</laber>
+            <input type="number" name="">
+            <br>
+            <label for="altest">Altura Estática de recalque(m)</label>
+            <input type="number" name="">
+            <br>
+            <label for="distbomb">Distância entre a entrada e saída da bomba(m)</label>
+            <input type="number" name="">
+    </div>
+    <div>
+
+        <h3>Peças/Singularidades</h3>
+            <label for="krg">Krg</label>
+            <input type="number" name="">
+            <label for="kvr">Kvr</label>
+            <input type="number" name="">
+            <label for="kc">Kc</label>
+            <input type="number" name="">
+            <label for="filtr">Filtros/outras</label>
+            <input type="number" name="">
+            <br>
+            <br>
+
+            <label>Rendimento da bomba(%)</label><input type="number">
+            <br><br>
+    <button><b>Calcular</b></button>
+    <br><br>
+    <div>
+        <fieldset>
+            <h3>Resultados</h3>
+                <label for="TextBox27">Número de Ryenolds</label>
+                <input type="number" name="" id="TextBox27">
+
+                <br>
+
+                <label for="TextBox28">Fator de atrito(F)</label>
+                <input type="number" name="" id="TextBox28">
+
+                <br>
+
+                <label for="TextBox29">Velocidade da água(m/s)</label>
+                <input type="number" name="" id="TextBox29">
+
+                <br>
+
+                <label for="perdCargD">Perda de carga distribluida(m)</label>
+                <input type="number" name="">
+
+                <br>
+
+                <label for="perdCargS">Perda de carga singular(m)</label>
+                <input type="number" name="">
+
+                <br>
+
+                <label for="perdCargT"> Perda de carga total(m)</label>
+                <input type="number" name="">
+
+                <p>pressão na saída da bomba:</p>
+                <label for="em">Em (kpa)</label><input type="number" name="">
+
+                <label for="emmca">Em(mca)</label><input type="number" name="">
+                <br><br>
+                <label for="carBombm">Carga da bomba(m)</label>
+                <input type="number" name="">
+                
+
+        </fieldset>
+        <br>
+        <fieldset>
+            <p>Potência da bomba(m)</p>
+
+                <label for="kw">Em(kw)</label><input type="number" name="">
+                <label for="cv">Em(CV)</label><input type="number">
+        </fieldset>
+
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
