@@ -374,6 +374,7 @@ function CommandButton3_Click(){
     let TextBox20 = document.getElementById("TextBox20");
     let TextBox23 = document.getElementById("TextBox23");
     let TextBox27 = document.getElementById("TextBox27");
+    let Label27 = document.getElementById("Label27");
     let TextBox28 = document.getElementById("TextBox28");
     let TextBox29 = document.getElementById("TextBox29");
     let TextBox30 = document.getElementById("TextBox30");
@@ -425,13 +426,13 @@ function CommandButton3_Click(){
 
         //'TextBox27.Text = Format(352610 * Qrec / Drec, "0") //ele comentou!!
 
-        TextBox27.value = (mespa * TextBox12.value * (Drec / 1000) / u).toFixed(1)
+        TextBox27.value = (mespa * parseFloat(TextBox12.value) * (Drec / 1000) / u).toFixed(1)
 
         //'Derterminação do fator de atrito e do regime de escoamento no recalque
 
-        if (parseFloat(TextBox27.value) <= 2300){
+        if (parseFloat(parseFloat(TextBox27.value)) <= 2300){
         
-            TextBox28.value = (64 / TextBox27.value).toFixed(2);
+            TextBox28.value = (64 / parseFloat(TextBox27.value)).toFixed(2);
             //'Label27 = "Escoamento Laminar"
             //'Label27.ForeColor = &H4000&
                     
@@ -448,16 +449,16 @@ function CommandButton3_Click(){
             TextBox28.value = (Fr).toFixed(4);
         }
 
-        if (parseFloat(TextBox27.value) >= 4000){
+        if (parseFloat(parseFloat(TextBox27.value)) >= 4000){
             
-            Label27.innerHTML = "Escoamento Turbulento";
+            //Label27.innerHTML = "Escoamento Turbulento";
             //'Label27.ForeColor = &H4000&
         }
     }
     //'Velocidade da água na tubulação de recalque
 
     TextBox29.value = (353.6775 * Qrec / Math.pow(Drec, 2)).toFixed(2);
-    Vr = Math.abs(TextBox29.value);
+    Vr = Math.abs(parseFloat(TextBox29.value));
 
     // era um CDBL
     
