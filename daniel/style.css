@@ -1,0 +1,98 @@
+
+body{
+    margin: 0px;
+    padding: 0px;
+    color: rgb(0, 0, 0);
+    height: 100vh;
+    width: 100vw;
+    background: url('imagens/imagem_fundo.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container{
+    height: 600px;
+    width: 500px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.dados_geral_1, .dados_geral_2, .dados_geral_3{
+    display: flex;
+    justify-content: space-between;
+}
+
+input,select{
+    height: 25px;
+    width: 70px;
+    margin-left: 5px;
+}
+
+.radio{
+    width: auto;
+}
+
+button{
+    font-size: 15px;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgb(11, 126, 120);
+    color: white;
+    margin-bottom: 10px;
+}
+
+h3{
+    font-size: 19px;
+}
+
+ul{
+    list-style: none;
+}
+
+.result_grande{
+    border: 0;
+    width: 40ch;
+    height: 20px;
+    color:rgb(0, 136, 113);
+    font-size: 12px;
+    margin: 0;
+}
+
+input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.mesma_linha{
+    display: flex;
+}
+
+#Label9{
+    width: 30ch;
+}
+
+#Label12{
+    border: 0;
+    height: 10px;
+    color:rgb(0, 136, 113);
+    font-size: 12px;
+}
+
+#Label22{
+    width: 15ch;
+}
+
+#TextBox4{
+    width: 70px;
+}
+
+#TextBox6{
+    width: 80px;
+}
+
+
+#TextBox9{
+    width: 80px;
+}

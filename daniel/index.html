@@ -4,106 +4,206 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Fator de Atrito Colebrook</title>
 </head>
 <body>
-    
-    <form action="">
-        <h3>Dados</h3>
-        <ul>
-            <li>
-                <label for="vazaoTotal">Vazao Total</label>
-                
-                <input type="radio" id="OptionButton1" name="vazaoTotal">
-                <label for="OptionButton1">m³/h</label>
-                <input type="radio" id="OptionButton2" name="vazaoTotal">
-                <label for="OptionButton1">L/h</label>
-                <input type="number" id="TextBox5" name="TextBox5">
-            </li>
+    <div class="container">
 
-            <li>
-                <label for="temperaturaAgua">Temperatura da água C</label>
-                <input type="number" id="TextBox10" name="textBox10">
-            </li>
-    </ul>
-    </form>
+        <div class="dados_geral_1">
 
-    <form action="">
-        <h3>Dados da tubulação</h3>
-        <ul>
-            <li><label for="">Comprimento da Tubulação(m)</label><input type="number" id="TextBox7" name="textBox7"></li>
+            <div class="informacoes">
 
-            <li><label for="">Material</label>
-                <select name="comboBox4" id="ComboBox4" class="um" onchange="ComboBox4_Change()">
-                    <option value=""></option>
-                    <option value="PEBD">PEBD</option>
-                    <option value="PVC">PVC</option>
-                    <option value="AZDº">AZD</option>
-                </select>
-            </li>
+                <form action="">
 
-            <li>
-                <label for="">Rugosidade absoluta(mm)</label>
-                    <select name="ComboBox3" id="ComboBox3" class="um">
-                        <option value=""></option>
-                        <option value="0.0015">0.0015</option>
-                        <option value="0.08">0.08</option>
-                        <option value="0.15">0.15</option>
-                    </select>
-            </li>
+                    <h3>Dados</h3>
 
-            <li>
-                <label for="">Diâmetro da tubulação</label>
-                    <select name="ComboBox1" id="ComboBox1">
-                        <option value=""></option>
-                        <option value="5.3">5.3</option> 
-                        <option value="13">13</option> 
-                        <option value="13.6">13.6</option> 
-                        <option value="16">16</option>
-                        <option value="20.6">20.6</option> 
-                        <option value="26.9">26.9</option> 
-                        <option value="35.7">35.7</option> 
-                        <option value="48.1">48.1</option> 
-                        <option value="72.5">72.5</option> 
-                        <option value="97.6">97.6</option>
-                    </select>
-            </li>
-        </ul>
-    </form>
+                    <ul>
+                        <li>
+                            <label for="vazaoTotal">Vazao Total</label>
+                            
+                            <input type="radio" id="OptionButton1" name="vazaoTotal" class="radio">
+                            <label for="OptionButton1">m³/h</label>
+                            <input type="radio" id="OptionButton2" name="vazaoTotal" class="radio">
+                            <label for="OptionButton1">L/h</label>
+                        </li>
 
-    <button id="commandButton1" onclick="CommandButton1_Click()">Calcular</button>
+                        <li>
+                            <label for="temperaturaAgua">Temperatura da água °C</label>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            
+            <div class="campos_inputs">
 
-    <form action="">
-        <h3>Resultados</h3>
-        <ul>
-            <li><label for="">Label24: </label><input type="text" id="Label24"></li>
+                <form action="">
 
-            <li><label for="">Label14: </label><input type="text" id="Label14"></li>
+                    <h3>&nbsp;</h3>
 
-            <li><label for="">Label15: </label><input type="text" id="Label15"></li>
+                    <ul>
+                        <li><input type="number" id="TextBox5" name="TextBox5"></li>
 
-            <li><label for="">Label12: </label><input type="text" id="Label12"></li>
+                        <li><input type="number" id="TextBox10" name="textBox10"></li>
+                    </ul>
+                    
+                </form>
 
-            <li><label for="">Label22: </label><input type="text" id="Label22"></li>
+            </div>
 
-            <li><label for="">Label9: </label><input type="text" id="Label9"></li>
+        </div>
 
-            <li><label for="">TextBox1: </label><input type="text" id="TextBox1"></li>
+        <div class="dados_geral_2">
 
-            <li><label for="">TextBox8: </label><input type="number" id="TextBox8"></li>
+            <div class="informacoes_2">
 
-            <li><label for="">TextBox4: </label><input type="text" id="TextBox4"></li>
+                <form action="">
 
-            <li><label for="">TextBox6: </label><input type="text" id="TextBox6"></li>
+                    <h3>Dados da tubulação</h3>
 
-            <li><label for="">TextBox9: </label><input type="text" id="TextBox9"></li>
-        </ul>
-    </form>
+                    <ul>
 
+                        <li><label for="">Comprimento da Tubulação(m)</label></li>
 
+                        <div class="mesma_linha">
 
-    
+                            <li><label for="">Material &nbsp;</label></li>
 
+                            <li><input type="text" id="Label24" class="result_grande"></li>
+
+                        </div>
+
+                        <li><label for="">Rugosidade absoluta(mm)</label></li>
+
+                        <li><label for="">Diâmetro da tubulação</label></li>
+
+                    </ul>
+
+                </form>
+
+            </div>
+
+            <div class="campos_inputs_2">
+
+                <h3>&nbsp;</h3>
+
+                <form action="">
+
+                    <ul>
+
+                        <li><input type="number" id="TextBox7" name="textBox7"></li>
+
+                        <li>
+                            <select name="comboBox4" id="ComboBox4" class="um" onchange="ComboBox4_Change()">
+                                <option value=""></option>
+                                <option value="PEBD">PEBD</option>
+                                <option value="PVC">PVC</option>
+                                <option value="AZDº">AZD</option>
+                            </select>
+                        </li>
+
+                        <li>
+                            <select name="ComboBox3" id="ComboBox3" class="um">
+                                <option value=""></option>
+                                <option value="0.0015">0.0015</option>
+                                <option value="0.08">0.08</option>
+                                <option value="0.15">0.15</option>
+                            </select>
+                        </li>
+
+                        <li>
+                            <select name="ComboBox1" id="ComboBox1">
+                                <option value=""></option>
+                                <option value="5.3">5.3</option> 
+                                <option value="13">13</option> 
+                                <option value="13.6">13.6</option> 
+                                <option value="16">16</option>
+                                <option value="20.6">20.6</option> 
+                                <option value="26.9">26.9</option> 
+                                <option value="35.7">35.7</option> 
+                                <option value="48.1">48.1</option> 
+                                <option value="72.5">72.5</option> 
+                                <option value="97.6">97.6</option>
+                            </select>
+                        </li>
+
+                    </ul>
+
+                </form>
+
+            </div>
+            
+        </div>
+            
+
+        <button id="commandButton1" onclick="CommandButton1_Click()">Calcular</button>
+
+        <div class="dados_geral_3">
+
+            <div class="labels">
+
+                <form action="">
+
+                    <h3>Resultados</h3>
+
+                    <ul>
+                        
+                        <li><label for="">Número de Reynolds:</label></li>
+
+                        <li><label for="">Rugopsidade hidráulica:</label></li>
+
+                        <li><label for="Label12">Fator de Atrito:</label><input type="text" id="Label12"></li>
+
+                        <li><label for="">Perda de Carga:</label></li>
+
+                        <li><label for="">Velocidade da água na tubulação (m/s):</label></li>
+
+                        <li><input type="text" id="Label14" class="result_grande"></li>
+
+                        <li><input type="text" id="Label15" class="result_grande"></li>
+
+                        <div class="mesma_linha">
+                            <li><input type="text" id="Label22" class="result_grande"></li>
+                            <li><input type="text" id="Label9" class="result_grande"></li>
+                        </div>
+
+                    </ul>
+
+                </form>
+
+            </div>
+
+            <div class="inputs_resultado">
+
+                <h3>&nbsp;</h3>
+
+                <form action="">
+
+                    <ul>
+
+                        <li><input type="text" id="TextBox1"></li>
+
+                        <li><input type="number" id="TextBox8"></li>
+                        
+                        <li><input type="text" id="TextBox4"></li>
+
+                        <li><input type="text" id="TextBox6"></li>
+
+                        <li><input type="text" id="TextBox9"></li>
+
+                    </ul>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <script src="script2.js"></script>
 </body>
 </html>
