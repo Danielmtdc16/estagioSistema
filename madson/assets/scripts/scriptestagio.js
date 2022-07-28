@@ -269,7 +269,7 @@ function CommandButton2_Click(){
         //'Altura estática de sucção real
         
         NPSHdreal = (1.15 * NPSH).toFixed(2);
-        Zsmax = (Patm - (NPSHdreal + HfTs + Pvm)).toFixed(2);
+        Zsmax = (Patm - (parseFloat(NPSHdreal) + HfTs + Pvm)).toFixed(2);
 
         Label29.visible = true;
         Label29.innerHTML = "Altura estática de sucção máxima = " + Zsmax + " m acima do nível da água no reservatório com NPSHdisp = " + NPSHdreal + "  m";
