@@ -1,0 +1,14 @@
+@media screen and (max-width: 500px){
+    .container{
+        width:400px;
+        font-size: 14px;
+    }
+
+    input, select{
+        margin-left: -10ch;
+    }
+
+    .radio, #Label12{
+        margin: auto;
+    }
+}
