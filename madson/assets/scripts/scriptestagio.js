@@ -80,15 +80,16 @@ function CheckBox3_Click(){
     let TextBox18 = document.getElementById("TextBox18");
     let Label22 = document.getElementById("Label22");
 
+    
 
     if(CheckBox3.checked){
+    
         
         CheckBox2.checked = false;
         CheckBox1.checked = false;
         Label56.style.visibility = "visible";
         TextBox39.style.visibility = "visible";
 
-        console.log(Label22.textContent)
         Label22.style.visibility="hidden"
         TextBox18.style.visibility="hidden"
         console.log(Label22.textContent)
@@ -96,6 +97,8 @@ function CheckBox3_Click(){
             
     }
     else{
+
+    
 
         Label56.style.visibility = "hidden";
         TextBox39.style.visibility = "visible";
