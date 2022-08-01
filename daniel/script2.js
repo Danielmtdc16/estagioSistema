@@ -189,8 +189,6 @@ function CommandButton1_Click(){
     }
 }
 
-
-
 function OptionButton1_Click(){
 
     if (OptionButton1.value == true){
@@ -203,10 +201,6 @@ function OptionButton2_Click(){
     if (OptionButton2.value == true){
         TextBox5.SetFocus;
     }
-}
-
-function TextBox9_Change(){
-
 }
 
 function UserForm_Initialize(){
