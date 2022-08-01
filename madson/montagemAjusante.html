@@ -114,9 +114,9 @@
 						<div><h4>Posição da tubulação na Sucção</h4>
 							
 							<label for="CheckBox2">Positiva</label>
-							<input type="radio" name="posicao-tubulacao" id="CheckBox2">
+							<input onchange="CheckBox2_Click()" type="radio" name="posicao-tubulacao" id="CheckBox2">
 							
-							<label for="CheckBox3">Negativa</label>
+							<label onchange = "CheckBox3_Click()" for="CheckBox3">Negativa</label>
 							<input type="radio" name="posicao-tubulacao" id="CheckBox3">
 							
 							<br>
@@ -124,7 +124,7 @@
 							<label for="altura-succao" id = "Label56">Altura da Sucção (m): </label><input type="text" id="TextBox39">
 							<br><br>
 
-							<input type="radio" name="altura-estatica-positiva" id="CheckBox1"> <label for="CheckBox1">Altura estática de sucção positiva pré-definida</label>
+							<input type="radio" onchange = "CheckBox1_Click()" name="altura-estatica-positiva" id="CheckBox1"> <label for="CheckBox1">Altura estática de sucção positiva pré-definida</label>
 							<br>
 							<label for="altura-succao" id = "Label57">Altura da Sucção 2 (m): </label><input type="text" id="TextBox40">
 
@@ -192,7 +192,7 @@
 							<input type="text" id = "TextBox17">
 
 							<label for="TextBox18" id = "Label22">Altura estática de sucção crítica</label>
-							<input type="text" id = "TextBox18">
+							<input type="text" id = "TextBox18" >
 
 						</td></tr>
 
@@ -230,13 +230,13 @@
                 <table border="1">
                     <tr><td>
                         <label for="OptionButton3">Livre</label>
-                        <input type="radio" id = "OptionButton3" name = "tipo-descarga">
+                        <input type="radio" onchange = "OptionButton3_Click()"id = "OptionButton3" name = "tipo-descarga">
 
                         <label for="OptionButton4">Imersa</label>
-                        <input type="radio" id = "OptionButton4" name = "tipo-descarga">
+                        <input type="radio" id = "OptionButton4" onchange="OptionButton4_Click()" name = "tipo-descarga">
 
                         <label for="OptionButton5">Pressurizada</label>
-                        <input type="radio" id = "OptionButton5" name = "tipo-descarga">
+                        <input type="radio" id = "OptionButton5" OptionButton5_Click() name = "tipo-descarga">
                     </td></tr>
                 </table>
         </div>

@@ -55,7 +55,7 @@ function CommandButton1_Click(){
     Uc = u * 1000;
     Label14.value = "Viscosidade dinâmica: " + Uc + " x 10-³ N.s/m²";
     
-//massa específica e fator de correção da temperatura FCt na lateral
+//massa específica e fator de correção yda temperatura FCt na lateral
      
     Fct = (Math.pow((Tempa - 3.983035), 2)) * (Tempa + 301.797) / (522528.9 * (Tempa + 69.34881));
     mespa = (1000 * (1 - Fct)).toFixed(2);
@@ -189,9 +189,7 @@ function CommandButton1_Click(){
     }
 }
 
-function Frame2_Click(){
 
-}
 
 function OptionButton1_Click(){
 

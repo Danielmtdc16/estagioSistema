@@ -1,5 +1,9 @@
 
 
+let CheckBox1 = document.getElementById("CheckBox1");
+
+
+
 function CheckBox1_Click(){
 
     let CheckBox1 = document.getElementById("CheckBox1");
@@ -12,23 +16,23 @@ function CheckBox1_Click(){
     
 
 
-    if(CheckBox1.value == true){
+    if(CheckBox1.checked){
 
-        CheckBox2.enabled = false;
-        Label56.visible = false;
-        TextBox39.visible = false;
-        TextBox18.visible = true;
-        TextBox40.enabled = true;
-        CheckBox2.value = false;
-        CheckBox3.value = false;
+        CheckBox2.style.visibility="hidden"
+        Label56.style.visibility="hidden"
+        TextBox39.style.visibility="hidden"
+        TextBox18.style.visibility = "visible";
+        TextBox40.style.visibility = "visible"
+        CheckBox2.checked = false;
+        CheckBox3.checked = false;
     }
  
     else{
-        CheckBox2.enabled = true;
-        Label56.visible = false;
-        TextBox39.visible = false;
-        TextBox18.visible = true;
-        TextBox40.enabled = false;
+        CheckBox2.style.visibility = "visible"
+        Label56.style.visibility="hidden"
+        TextBox39.style.visibility="hidden"
+        TextBox18.style.visibility = "visible";
+        TextBox40.style.visibility="hidden"
     }
 
 }
@@ -44,23 +48,23 @@ function CheckBox2_Click(){
     let TextBox40 = document.getElementById("TextBox40");
     
 
-    if(CheckBox2.value == true){
+    if(CheckBox2.checked){
 
-        CheckBox1.Enabled = false;
-        CheckBox3.value = false;
-        Label56.visible = false;
-        TextBox39.visible = false;
-        TextBox18.visible = true;
-        TextBox40.Enabled = false;
+        CheckBox1.style.visibility="hidden"
+        CheckBox3.checked = false;
+        Label56.style.visibility="hidden"
+        TextBox39.style.visibility="hidden"
+        TextBox18.style.visibility = "visible";
+        TextBox40.style.visibility="hidden"
     }
 
     else{
 
-        CheckBox1.Enabled = true;
-        Label56.visible = false;
-        TextBox39.visible = false;
-        TextBox18.visible = true;
-        TextBox40.Enabled = true;
+        CheckBox1.style.visibility = "visible"
+        Label56.style.visibility="hidden"
+        TextBox39.style.visibility="hidden"
+        TextBox18.style.visibility = "visible";
+        TextBox40.style.visibility = "visible"
     }
 
 }
@@ -74,23 +78,28 @@ function CheckBox3_Click(){
     let Label56 = document.getElementById("Label56");
     let TextBox39 = document.getElementById("TextBox39");
     let TextBox18 = document.getElementById("TextBox18");
+    let Label22 = document.getElementById("Label22");
 
 
-    if(CheckBox3.value == true){
+    if(CheckBox3.checked){
         
+        CheckBox2.checked = false;
+        CheckBox1.checked = false;
+        Label56.style.visibility = "visible";
+        TextBox39.style.visibility = "visible";
 
-        CheckBox2.value = false;
-        CheckBox1.value = false;
-        Label56.visible = true;
-        TextBox39.visible = true;
-        TextBox18.visible = false;
+        console.log(Label22.textContent)
+        Label22.style.visibility="hidden"
+        TextBox18.style.visibility="hidden"
+        console.log(Label22.textContent)
+        
+            
     }
-    
     else{
 
-        Label56.visible = false;
-        TextBox39.visible = false;
-        TextBox18.visible = true;
+        Label56.style.visibility = "hidden";
+        TextBox39.style.visibility = "visible";
+        TextBox18.style.visibility = "visible";
     }
 
 }
@@ -167,7 +176,7 @@ function CommandButton2_Click(){
 
     if ((TextBox1.value == "") || (TextBox2.value == "") || (TextBox4.value == "") || (TextBox6.value == "") || (ComboBox6.value == "")) {
     
-        alert("Preenchimento do campo obrigatório.");
+        alert("Campos obrigatorios não foram preenchidos");
         
     } else {
     
@@ -258,6 +267,8 @@ function CommandButton2_Click(){
 
     //'Altura estática de sucção positiva
 
+    
+
     if (CheckBox2.checked){
     
         //'Altura estática de sucção
@@ -271,7 +282,7 @@ function CommandButton2_Click(){
         NPSHdreal = (1.15 * NPSH).toFixed(2);
         Zsmax = (Patm - (parseFloat(NPSHdreal) + HfTs + Pvm)).toFixed(2);
 
-        Label29.visible = true;
+        Label29.style.visibility = "visible";
         Label29.innerHTML = "Altura estática de sucção máxima = " + Zsmax + " m acima do nível da água no reservatório com NPSHdisp = " + NPSHdreal + "  m";
         //Label29.ForeColor = &H4000&
         
@@ -295,14 +306,18 @@ function CommandButton2_Click(){
     }
 
     //'Para tubulação na sucção negativa "Afogada"
+    
 
-    else if (CheckBox3.checked){
+    if (CheckBox3.checked){
+        
+
+        CheckBox3_Click();
     
         //'NPSH disponível para sucção negativa (Afogada)
 
         TextBox19.value = (Patm + ZsAfog - (Pvm + HfTs)).toFixed(2);
         Label23.value = "NPSH disponível (m)";
-        //'Label29.visible = false;
+        //'Label29.style.visibility="hidden"
         NPSHd = Math.abs(parseFloat(TextBox19.value));
         
         //'Pressão na secção de entrada da bomba
@@ -324,7 +339,7 @@ function CommandButton2_Click(){
         
         TextBox19.value = (Patm - (Zspre + Pvm + HfTs)).toFixed(2);
         Label23.value = "NPSH disponível (m)";
-        Label29.visible = false;
+        Label29.style.visibility="hidden"
         
         //'Pressão na secção de entrada da bomba na sucção positiva pré-definida
 
@@ -339,11 +354,11 @@ function CommandButton2_Click(){
 
     if ((CheckBox2.checked) && (Zs < 0)) {
 
-        CheckBox2.value = false;
+        CheckBox2.checked = false;
         CheckBox3.value = true;
-        Label56.visible = true;
+        Label56.style.visibility = "visible";
         
-        TextBox18.visible = false;
+        TextBox18.style.visibility="hidden"
         Zsmod = (-1 * Zs).toFixed(2);
         
         Label29.value = "Altura estática de sucção mínima de: " + Zsmod + " m abaixo do nível inferior da água no reservatório.";
@@ -524,10 +539,10 @@ function Label11_Click(){
 
 //'If OptionButton1.value = true; Then
 
-//  ' Label56.visible = false;
-//  'TextBox39.visible = false;
-// 'TextBox18.visible = true;
-// ' TextBox40.Enabled = false;
+//  ' Label56.style.visibility="hidden"
+//  'TextBox39.style.visibility="hidden"
+// 'TextBox18.style.visibility = "visible";
+// ' TextBox40.style.visibility="hidden"
   
 //End If
 
@@ -538,9 +553,9 @@ function Label11_Click(){
 
 //'If OptionButton2.value = true; Then
 
-//  ' Label56.visible = true;
-// ' TextBox39.visible = true;
-//'  TextBox18.visible = false;
+//  ' Label56.style.visibility = "visible";
+// ' TextBox39.style.visibility = "visible";
+//'  TextBox18.style.visibility="hidden"
   
 //    End If
 //
@@ -550,8 +565,8 @@ function OptionButton3_Click(){
 
     if(OptionButton3.checked){
 
-        Label40.visible = false;
-        TextBox26.visible = false;
+        Label40.style.visibility="hidden"
+        TextBox26.style.visibility="hidden"
         TextBox26.value = " ";
     }
 
@@ -562,9 +577,9 @@ function OptionButton4_Click(){
 
     if (OptionButton4.checked){
 
-        Label40.visible = false;
-        TextBox26.visible = false;
-        TextBox26.value = " ";
+        Label40.style.visibility="hidden"
+        TextBox26.style.visibility="hidden"
+        TextBox26.value = "";
     }
 }
 
@@ -572,8 +587,8 @@ function OptionButton5_Click(){
 
     if (OptionButton5.checked){
 
-        Label40.visible = true;
-        TextBox26.visible = true;
+        Label40.style.visibility = "visible";
+        TextBox26.style.visibility = "visible";
     
     }
 }
