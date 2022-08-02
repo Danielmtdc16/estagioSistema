@@ -388,7 +388,6 @@ function CommandButton3_Click(){
     let TextBox20 = document.getElementById("TextBox20");
     let TextBox23 = document.getElementById("TextBox23");
     let TextBox27 = document.getElementById("TextBox27");
-    let Label27 = document.getElementById("Label27");
     let TextBox28 = document.getElementById("TextBox28");
     let TextBox29 = document.getElementById("TextBox29");
     let TextBox30 = document.getElementById("TextBox30");
@@ -512,7 +511,7 @@ function CommandButton3_Click(){
     PAdm = Math.abs(TextBox8.value);
     Vsuc = Math.abs(TextBox29.value);
     
-    TextBox35.value = ((PSaida - PAdm) + ((Math.pow(Vr, 2) - Math.pow(Vsuc, 2)) / 19.62) + d).toFixed(2);
+    TextBox35.value = ((PSaida - (-1*PAdm)) + (((Math.pow(Vr, 2)) - (Math.pow(Vsuc, 2))) / 19.62) + d).toFixed(2);
     Hb = Math.abs(parseFloat(TextBox35.value));
 
     //Era um CDBL
@@ -566,7 +565,7 @@ function OptionButton3_Click(){
 
         Label40.style.visibility="hidden"
         TextBox26.style.visibility="hidden"
-        TextBox26.value = " ";
+        TextBox26.value = 0;
     }
 
 }
@@ -578,7 +577,7 @@ function OptionButton4_Click(){
 
         Label40.style.visibility="hidden"
         TextBox26.style.visibility="hidden"
-        TextBox26.value = "";
+        TextBox26.value = 0;
     }
 }
 
