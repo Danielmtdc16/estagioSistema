@@ -215,7 +215,7 @@ function CommandButton2_Click(){
         
     //'Número de Reynolds na sucção
 
-    TextBox10.value = (mespa * parseFloat(TextBox12.value) * (Dsuc / 1000) / u).toFixed(1);
+    TextBox10.value = (mespa * parseFloat(TextBox12.value) * (Dsuc / 1000) / u).toFixed(0);
 
     //'Derterminação do fator de atrito e do regime de escoamento na sucção
 
@@ -264,7 +264,7 @@ function CommandButton2_Click(){
 
     //'Pressão atmosférica local
 
-    TextBox16.value = Math.pow(10.33 * ((293 - 0.0065 * Alt) / 293), 5.26).toFixed(2);
+    TextBox16.value = (10.33 * Math.pow(((293 - 0.0065 * Alt) / 293), 5.26)).toFixed(2);
     Patm = Math.abs(parseFloat(TextBox16.value));
     //era um CDbl
 
@@ -291,16 +291,15 @@ function CommandButton2_Click(){
         
         //'NPSH disponível para sucção positiva
 
-        TextBox19.value = (Patm - (Zscritica + Pvm + HfTs)).toFixed(2);
-        Label23.value = "NPSH disponível limiar (m)";
+        TextBox19.value = (Patm - (-1*Zscritica + Pvm + HfTs)).toFixed(2);
         NPSHd = Math.abs(parseFloat(TextBox19.value));
         //era um CDbl
         
         //'Pressão na secção de entrada da bomba na sucção positiva
         
         //Em KPa
-        
-        TextBox7.value = (parseFloat(TextBox9.value) * (Zsreal + (Math.pow(parseFloat(TextBox12.value), 2) / 19.62) + HfTs) / 1000).toFixed(2);
+        let Zsreal = 0;
+        TextBox7.value = (-(parseFloat(TextBox9.value)) * (Zsreal + (Math.pow(parseFloat(TextBox12.value), 2) / 19.62) + HfTs) / 1000).toFixed(2);
 
         //Em mca
         
@@ -313,9 +312,6 @@ function CommandButton2_Click(){
 
     if (CheckBox3.checked){
         
-
-        CheckBox3_Click();
-    
         //'NPSH disponível para sucção negativa (Afogada)
 
         TextBox19.value = (Patm + ZsAfog - (Pvm + HfTs)).toFixed(2);
@@ -355,7 +351,7 @@ function CommandButton2_Click(){
         TextBox8.value = (-(Zspre + (Math.pow(parseFloat(TextBox12.value), 2) / 19.62) + HfTs)).toFixed(2);
     }
 
-    if ((CheckBox2.checked) && (Zs < 0)) {
+    if ((CheckBox2.checked) && (Zspre < 0)) {
 
         CheckBox2.checked = false;
         CheckBox3.value = true;
