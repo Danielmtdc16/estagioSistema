@@ -5,7 +5,7 @@ body{
     color: rgb(0, 0, 0);
     height: 100vh;
     width: 100vw;
-    background: url('imagens/imagem_fundo.jpg');
+    background: url('../images/imagem_fundo.jpg');
     background-size: cover;
     display: flex;
     flex-direction: column;
