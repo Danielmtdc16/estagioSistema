@@ -113,20 +113,20 @@
 
 						<div><h4>Posição da tubulação na Sucção</h4>
 							
-							<label for="CheckBox2">Positiva</label>
-							<input onchange="CheckBox2_Click()" type="radio" name="posicao-tubulacao" id="CheckBox2">
+							<label id = "LabelPositiva" for="CheckBox2">Positiva</label>
+							<input onchange="CheckBox2_Click()" type="checkbox" name="posicao-tubulacao" id="CheckBox2">
 							
-							<label  for="CheckBox3">Negativa</label>
-							<input type="radio" onchange="CheckBox3_Click()" name="posicao-tubulacao" id="CheckBox3">
+							<label  id = "LabelNegativa" for="CheckBox3">Negativa</label>
+							<input type="checkbox" onchange="CheckBox3_Click()" name="posicao-tubulacao" id="CheckBox3">
 							
 							<br>
 
-							<label for="altura-succao" id = "Label56">Altura da Sucção (m): </label><input type="text" id="TextBox39">
+							<label for="TextBox39" id = "Label56">Altura da Sucção (m): </label><input type="text" id="TextBox39">
 							<br><br>
 
-							<input type="radio" onchange = "CheckBox1_Click()" name="altura-estatica-positiva" id="CheckBox1"> <label for="CheckBox1">Altura estática de sucção positiva pré-definida</label>
+							<input type="checkbox" onchange = "CheckBox1_Click()" name="altura-estatica-positiva" id="CheckBox1"> <label id = "alturaPredefinida" for="CheckBox1">Altura estática de sucção positiva pré-definida</label>
 							<br>
-							<label for="altura-succao" id = "Label57">Altura da Sucção 2 (m): </label><input type="text" id="TextBox40">
+							<label for="TextBox40" id = "Label57">Altura da Sucção 2 (m): </label><input type="text" id="TextBox40">
 
 						</div>
 
@@ -258,7 +258,11 @@
                 <br>
 
                 <label id="Label32" id = "ComboBox12">Rugosidade absoluta(mm)</laber>
-                <input type="number" id ="ComboBox12">
+				<select name="" id="ComboBox8">
+                    <option value=""></option>
+                    <option value="0.00334">0.00334</option>
+                    <option value="0.15">0.15</option>
+                </select>
                 <br>
 
                 <label id="Label33" for="TextBox23">Altura Estática de recalque(m)</label>

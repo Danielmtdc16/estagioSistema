@@ -18,7 +18,7 @@ function CheckBox1_Click(){
 
     if(CheckBox1.checked){
 
-        CheckBox2.style.visibility="hidden"
+        
         Label56.style.visibility="hidden"
         TextBox39.style.visibility="hidden"
         TextBox18.style.visibility = "visible";
@@ -46,31 +46,39 @@ function CheckBox2_Click(){
     let TextBox39 = document.getElementById("TextBox39");
     let TextBox18 = document.getElementById("TextBox18");
     let TextBox40 = document.getElementById("TextBox40");
-    
-
+    let LabelPositiva = document.getElementById("LabelPositiva")
+    let LabelNegativa = document.getElementById("LabelNegativa")
+    let alturaPredefinida = document.getElementById("alturaPredefinida")
+    let Label57 = document.getElementById("Label57")
     if(CheckBox2.checked){
-
+        CheckBox1.checked=false
+        CheckBox2.style.visibility="visible"
         CheckBox1.style.visibility="hidden"
         CheckBox3.checked = false;
         Label56.style.visibility="hidden"
         TextBox39.style.visibility="hidden"
         TextBox18.style.visibility = "visible";
         TextBox40.style.visibility="hidden"
+        alturaPredefinida.style.visibility="hidden"
+        Label57.style.visibility="hidden"
     }
 
     else{
 
-        CheckBox1.style.visibility = "visible"
-        Label56.style.visibility="hidden"
-        TextBox39.style.visibility="hidden"
-        TextBox18.style.visibility = "visible";
-        TextBox40.style.visibility = "visible"
+        CheckBox1.style.visibility="visible"
+        Label56.style.visibility="visible"
+        TextBox39.style.visibility="visible"
+        TextBox18.style.visibility = "hidden";
+        TextBox40.style.visibility="visible"
+        alturaPredefinida.style.visibility="visible"
+        Label57.style.visibility="visible"
     }
 
 }
 
 
 function CheckBox3_Click(){
+
 
     let CheckBox1 = document.getElementById("CheckBox1");
     let CheckBox2 = document.getElementById("CheckBox2");
@@ -104,6 +112,7 @@ function CheckBox3_Click(){
         TextBox39.style.visibility = "visible";
         TextBox18.style.visibility = "visible";
     }
+    CheckBox2_Click()
 
 }
 
